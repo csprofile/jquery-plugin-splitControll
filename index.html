@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>splitControl Demo</title>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript" src="js/splitControl.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				var jButton = $("<button>");
+				jButton.html("Click");
+				
+				
+				var splitControl = jButton.splitControl({
+					appendTo:'body',
+					closeOnMouseOut:true,
+					matriz:{x:8,y:6},
+					control:{
+						border: "1px solid #c0c0c0",
+						normalBG:"#fff",
+						selectedBG:"#ddd",
+						width:80,
+						height:80,
+					}
+				});
+				
+				
+				splitControl.onSelect = function(X,Y,O){
+					alert("X:"+X+" Y:"+Y);
+					O.close()
+				}
+				
+				$('body').dblclick(function(){
+					splitControl.close();
+				});
+				
+				$('body').append(jButton);
+			});
+		</script>
+	</head>
+
+	<body>	
+		
+		
+	</body>
+
+</html>
